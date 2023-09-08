@@ -11,12 +11,11 @@ app.use(express.json())
 
 //code`
 const date = new Date();
-const utcTime = date.toUTCString();
 const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 const currentDay = daysOfWeek[date.getDay()];
 
 
-app.get('/api/get', (req, res) => {
+app.get('/api', (req, res) => {
     const {slack_name, track} = req.query
 
     try{
@@ -24,7 +23,7 @@ app.get('/api/get', (req, res) => {
         res.send({
             "slack_name": slack_name,
             "current_day": currentDay,
-            "utc_time": utcTime,
+            "utc_time": date.toUTCString(),
             "track": track,
             "github_file_url": "https://github.com/JosephBusayo/hng_task1/blob/main/index.js",
             "github_repo_url": "https://github.com/JosephBusayo/hng_task1",
@@ -38,3 +37,4 @@ app.get('/api/get', (req, res) => {
 app.listen(PORT, () => {
     console.log(`Listening on port ${PORT}`)
 })
+
