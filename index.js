@@ -20,13 +20,14 @@ app.get('/api/get', (req, res) => {
     const {slack_name, track} = req.query
 
     try{
+        res.setHeader('Content-Type', 'application/json');
         res.send({
             "slack_name": slack_name,
             "current_day": currentDay,
             "utc_time": utcTime,
             "track": track,
-            "github_file_url": "https://github.com/username/repo/blob/main/file_name.ext",
-            "github_repo_url": "https://github.com/username/repo",
+            "github_file_url": "https://github.com/JosephBusayo/hng_task1/blob/main/index.js",
+            "github_repo_url": "https://github.com/JosephBusayo/hng_task1",
             "status_code": 200
         })
     }catch(err){
