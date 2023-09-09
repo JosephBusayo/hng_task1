@@ -23,7 +23,7 @@ app.get('/api', (req, res) => {
         res.send({
             "slack_name": slack_name,
             "current_day": currentDay,
-            "utc_time": date.toUTCString(),
+            "utc_time": new Date().toISOString(),
             "track": track,
             "github_file_url": "https://github.com/JosephBusayo/hng_task1/blob/main/index.js",
             "github_repo_url": "https://github.com/JosephBusayo/hng_task1",
