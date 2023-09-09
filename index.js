@@ -33,11 +33,7 @@ app.get('/api', (req, res) => {
         res.send(err)
     }
 })
-const secondLevelPrecision = date.toISOString().split('.')[0] + 'Z';
-const millisecondLevelPrecision = `${date.toISOString().slice(0, -1)}${date.getMilliseconds()}Z`;
 
-console.log("Second-level precision:", secondLevelPrecision);
-console.log("Millisecond-level precision:", millisecondLevelPrecision);
 
 app.listen(PORT, () => {
     console.log(`Listening on port ${PORT}`)
